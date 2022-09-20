@@ -1,0 +1,20 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlserver"
+  url      = env("DATABASE_URL")
+}
+
+model agrupamentos {
+  id            String  @id @default(uuid())
+  materia_prima String
+  agrupamento   String  @unique
+  laser         String
+  separada      Boolean
+  kaizen        Boolean
+  date          String
+  inicio        String
+  tempo_corte   String
+}
